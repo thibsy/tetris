@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en_GB" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="author" content="Thibeau Fuhrer <fuhrer@thibeau.ch>" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="This is just a small website on which you can play some Tetris." />
+        <meta name="keywords" content="Tetris, Game, JavaScript, HTML, CSS" />
+
+        <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+        <link rel="stylesheet" href="./assets/css/tetris.css" />
+
+        <title>Thibeau Fuhrer | Tetris</title>
+    </head>
+
+    <body>
+        <main>
+            <!--<div id="tetris-logo"><img src="./assets/logo.svg" alt="original tetris logo" /></div>-->
+
+            <ul id="tetris-grid">
+                <div id="tetris-grid-overlay" class="invisible">
+                    <p class="important"><span id="tetris-overview-message">Game Over!</span></p>
+                </div>
+                <!-- list-elements will be generated -->
+            </ul>
+
+            <div id="tetris-sidebar">
+                <div class="third">
+                    <ul id="tetris-preview-grid">
+                        <!-- list-elements will be generated -->
+                    </ul>
+                </div>
+                <div class="third">
+                    <div id="tetris-info"><p>
+                        SCORE: <span id="tetris-score"></span><br />
+                        LEVEL: <span id="tetris-level"></span><br />
+                        LINES: <span id="tetris-lines"></span><br />
+                    </p></div>
+                </div>
+                <div class="third">
+                    <input id="tetris-start" type="button" value="Start" />
+                </div>
+            </div>
+        </main>
+
+        <script type="application/javascript" src="./dist/main.min.js"></script>
+    </body>
+</html>

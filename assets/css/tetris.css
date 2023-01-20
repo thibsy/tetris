@@ -1,0 +1,246 @@
+/*
+ * @author Thibeau Fuhrer <fuhrer@thibeau.ch>
+ *
+ * Throughout this stylesheet I used the color-palette
+ * used by google's dark-theme:
+ * https://material.io/design/color/dark-theme.html
+ */
+
+* { padding: 0; margin: 0; }
+
+/* =================================================
+ * tetris calligraphy
+ * ================================================= */
+
+h1 {
+    font-family: "Lucida Console", monospace;
+    font-size: 36px;
+    letter-spacing: 1px;
+    text-align: center;
+    margin: 10px 0;
+    color: #FFFFFF;
+}
+
+p {
+    font-family: "Lucida Console", monospace;
+    font-size: 16px;
+    text-align: center;
+    margin: 5px 0;
+    color: #FFFFFF;
+}
+
+a, a:visited {
+    font-family: "Lucida Console", monospace;
+    font-size: inherit;
+    text-decoration: none;
+    color: #BB86FC;
+}
+
+.important {
+    font-size: 24px;
+    /*font-weight: bold;*/
+}
+
+/* =================================================
+ * general styles
+ * ================================================= */
+
+body {
+    height: 100vh;
+    background: #121212;
+    align-items: center;
+    display: flex;
+}
+
+main {
+    width: fit-content;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.visible {
+    visibility: visible;
+    opacity: 100%;
+}
+
+.invisible {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.failure {
+    color: #CF6679;
+}
+
+.success {
+    color: #4caf50;
+}
+
+/* =================================================
+ * tetris grid overlay
+ * ================================================= */
+
+#tetris-grid-overlay {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background: rgba(132, 132, 132, 0.6);
+    transition: all 0.5s ease;
+    align-items: center;
+    position: absolute;
+    color: #FFFFFF;
+    z-index: 20;
+}
+
+#tetris-grid-overlay.failure {
+    background: rgba(207, 102, 121, 0.6);
+}
+
+#tetris-grid-overlay.success {
+    background: rgba(76, 175, 80, 0.6);
+}
+
+#tetris-grid-overlay p {
+    margin: 0 auto;
+}
+
+/* =================================================
+ * tetris header
+ * ================================================= */
+
+#tetris-logo {
+    width: 100%;
+    height: auto;
+    align-items: center;
+    display: flex;
+}
+
+#tetris-logo img {
+    width: 175px;
+    height: auto;
+    margin: 0 auto 50px auto;
+}
+
+/* =================================================
+ * tetris sidebar
+ * ================================================= */
+
+#tetris-sidebar {
+    width: calc((20 * 25px) / 3);
+    height: calc((20 * 25px) / 3);
+    margin: 0 0 0 50px;
+    float: right;
+}
+
+#tetris-sidebar .third {
+    width: 100%;
+    height: calc((20 * 25px) / 3);
+    align-items: center;
+    display: flex;
+}
+
+/* =================================================
+ * tetris main grid
+ * ================================================= */
+
+#tetris-grid {
+    width: calc(10 * 25px);
+    height: calc(20 * 25px);
+    list-style-type: none;
+    position: relative;
+    flex-wrap: wrap;
+    display: flex;
+    float: left;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: rgba(3, 218, 198, 0.4) -5px 5px,
+                rgba(3, 218, 198, 0.6) -10px 10px,
+                rgba(3, 218, 198, 0.5) -15px 15px,
+                rgba(3, 218, 198, 0.4) -20px 20px,
+                rgba(3, 218, 198, 0.3) -25px 25px;
+}
+
+#tetris-grid li {
+    width: 25px;
+    height: 25px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* =================================================
+ * tetris preview grid
+ * ================================================= */
+
+#tetris-preview-grid {
+    width: calc(5 * 25px);
+    height: calc(5 * 25px);
+    margin: 0 auto;
+    list-style-type: none;
+    position: relative;
+    flex-wrap: wrap;
+    display: flex;
+    float: left;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: rgba(240, 46, 170, 0.4) -5px 5px,
+                rgba(240, 46, 170, 0.3) -10px 10px,
+                rgba(240, 46, 170, 0.2) -15px 15px,
+                rgba(240, 46, 170, 0.1) -20px 20px,
+                rgba(240, 46, 170, 0.05) -25px 25px;
+}
+
+#tetris-preview-grid li {
+    width: 25px;
+    height: 25px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* =================================================
+ * tetris info-block
+ * ================================================= */
+
+#tetris-info {
+    width: calc(5 * 25px);
+    padding: 2px 0;
+    height: auto;
+    display: inline-block;
+    margin: 0 auto;
+    border: 2px solid rgb(216, 84, 240);
+    box-shadow: rgb(216, 84, 240, 0.4) -5px 5px,
+                rgb(216, 84, 240, 0.3) -15px 15px,
+                rgb(216, 84, 240, 0.2) -10px 10px,
+                rgb(216, 84, 240, 0.1) -20px 20px,
+                rgb(216, 84, 240, 0.05) -25px 25px;
+}
+
+/* =================================================
+ * tetris controls
+ * ================================================= */
+
+#tetris-start {
+    width: calc(5 * 25px);
+    font-size: 15px;
+    padding: 10px 18px;
+    margin: 0 auto;
+    border: none;
+    display: block;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    color: #000000;
+    background: #BB86FC;
+    box-shadow: rgba(187, 134, 252, 0.4) -5px 5px,
+                rgba(187, 134, 252, 0.3) -10px 10px,
+                rgba(187, 134, 252, 0.2) -15px 15px,
+                rgba(187, 134, 252, 0.1) -20px 20px,
+                rgba(187, 134, 252, 0.05) -25px 25px;
+}
+
+#tetris-start:disabled {
+    color: #FFFFFF;
+    background: #404040;
+    box-shadow: rgba(64, 64, 64, 0.4) -5px 5px,
+                rgba(64, 64, 64, 0.3) -10px 10px,
+                rgba(64, 64, 64, 0.2) -15px 15px,
+                rgba(64, 64, 64, 0.1) -20px 20px,
+                rgba(64, 64, 64, 0.05) -25px 25px;
+}
